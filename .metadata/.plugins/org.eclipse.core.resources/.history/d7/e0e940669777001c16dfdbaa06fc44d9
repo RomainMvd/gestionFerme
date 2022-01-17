@@ -1,0 +1,44 @@
+package com.inti.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.inti.entities.Animal;
+import com.inti.repositories.AnimalRepository;
+import com.inti.services.interfaces.IAnimalService;
+
+@Service
+public class AnimalService implements IAnimalService {
+	@Autowired
+	AnimalRepository animalRepository;
+
+	@Override
+	public List<Animal> findAll() {
+
+		return animalRepository.findAll();
+	}
+
+	@Override
+	public Animal findOne(Long idAnimal) {
+		return animalRepository.findById(idAnimal).get();
+	}
+
+	@Override
+	public Animal save(Animal animal) {
+		return animalRepository.save(animal);
+	}
+
+	@Override
+	public void delete(Long idAnimal) {
+		animalRepository.deleteById(idAnimal);
+	}
+
+	@Override
+	public Animal findByIdAnimal(Long idAnimal) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

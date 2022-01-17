@@ -1,0 +1,13 @@
+package com.inti.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
+public class Animal {
+	private Long idAnimal;
+	@ManyToOne
+	@JoinColumn(name = "id_ferme")
+	private Ferme ferme;
+}
